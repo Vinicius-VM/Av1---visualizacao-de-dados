@@ -1,2 +1,68 @@
 Se o pandas não estiver corretamente aparecendo, apesar de existir fora:
 !pip install pandas
+
+
+Códigos notáveis, feitos em outro banco de dados (para fazer análise exploratória e afins):
+
+df.head()                       # Mostra as 5 primeiras linhas
+df.head(10)                     # Mostra as 10 primeiras linhas
+df.shape                        # Retorna (número de linhas, número de colunas)
+df.columns.tolist()             # Lista os nomes de todas as colunas
+df.info()                       # Mostra tipos de dados e valores não nulos
+df.dtypes                       # Mostra o tipo de cada coluna
+df["country"].nunique()         # Conta quantos países diferentes existem
+df["date"].nunique()            # Conta quantas datas diferentes existem
+df["country"].unique()          # Lista os países presentes no banco
+df.describe()                   # Estatísticas descritivas das colunas numéricas
+df.describe(include="all")      # Estatísticas de colunas numéricas e categóricas
+
+df["date"] = pd.to_datetime(df["date"], errors="coerce")
+# Converte a coluna date para o formato de data
+
+df["year"] = df["date"].dt.year
+# Cria uma coluna contendo somente o ano
+
+df["year"].min()                # Retorna o menor ano
+df["year"].max()                # Retorna o maior ano
+df["year"].value_counts()       # Conta os registros por ano
+df["year"].value_counts().sort_index()
+# Conta os registros por ano em ordem cronológica
+
+dados_periodo = df[df["year"].between(2010, 2015)].copy()
+# Filtra os dados entre 2010 e 2015, inclusive
+
+dados_periodo["country"].nunique()
+# Conta os países presentes no período
+
+dados_periodo.groupby("year").size()
+# Conta o número de registros em cada ano
+
+dados_periodo.groupby("year")["country"].nunique()
+# Conta os países diferentes presentes em cada ano
+
+df.mean(numeric_only=True)      # Calcula a média das colunas numéricas
+df.median(numeric_only=True)    # Calcula a mediana
+df.std(numeric_only=True)       # Calcula o desvio-padrão
+df.min(numeric_only=True)       # Retorna os mínimos
+df.max(numeric_only=True)       # Retorna os máximos
+df.quantile(0.25, numeric_only=True)  # Primeiro quartil
+df.quantile(0.75, numeric_only=True)  # Terceiro quartil
+df.select_dtypes(include="number").corr()
+# Calcula a matriz de correlação das variáveis numéricas
+
+df["GDP_current_US"].mean()     # Média do PIB
+df["GDP_current_US"].median()   # Mediana do PIB
+df["GDP_current_US"].min()      # Menor PIB registrado
+df["GDP_current_US"].max()      # Maior PIB registrado
+
+df["life_expectancy_at_birth"].mean()
+# Média da expectativa de vida
+
+df["CO2_emisions"].mean()
+# Média das emissões de CO2
+
+df["agricultural_land%"].mean()
+# Média da proporção de terras agrícolas
+
+df["forest_land%"].mean()
+# Média da proporção de terras florestais
