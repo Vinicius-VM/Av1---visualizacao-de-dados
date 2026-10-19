@@ -10,5 +10,5 @@ Eu o fiz como uma forma de extrair informações acerca do banco de dados, para 
 
 ### Sobre a parte visual
 
-O Desenvolvimento da folha foi feito no site venngage, não consegui exportar o link do meu projeto, porém a imagem está em anexo.
+O Desenvolvimento da folha foi feito no site venngage, não consegui exportar o link do meu projeto (não tenho a versão premium), porém a imagem está em anexo.
 Além disso, peguei inspiração na seção de infográficos no site: https://infograph.venngage.com/templates/infographics/
